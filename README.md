@@ -7,7 +7,7 @@
 ### Virtual environment
 
     $ cd personio  # root directory
-    $ python -m venv
+    $ python -m venv venv
     $ . venv/bin/activate
 
 ### Dependicies
