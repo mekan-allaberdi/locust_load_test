@@ -42,12 +42,13 @@ class AbsenceTask(TaskSet):
         )
 
     @task(5)
-    @tag("attendances", "update")
+    @tag("absences", "update")
     @get_next_token
     def update(self):
+        attendance_id = random_attendance_id()
         payload = random_attendance()
         return self.client.patch(
-            "/company/attendances/" + random_attendance_id(),
+            "/company/attendances/{}".format(attendance_id),
             data=json.dumps(payload),
             headers=self.user.get_auth_headers(),
             name="/absences",
@@ -57,8 +58,9 @@ class AbsenceTask(TaskSet):
     @tag("absences", "delete")
     @get_next_token
     def delete(self):
+        time_off_type_id = random_time_off_type_id()
         return self.client.delete(
-            "/company/time-offs/" + random_time_off_type_id(),
+            "/company/time-offs/{}".format(time_off_type_id),
             headers=self.user.get_auth_headers(),
             name="/company/time-offs/",
         )
@@ -68,7 +70,7 @@ class AbsenceTask(TaskSet):
     @get_next_token
     def detail(self):
         return self.client.get(
-            "/company/time-offs/" + "11",
+            "/company/time-offs/" + "11",  # fix after documentation is updated
             headers=self.user.get_auth_headers(),
             name="/company/time-offs/",
         )

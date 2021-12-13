@@ -15,7 +15,7 @@ class User(HttpUser):
             "Accept": "application/json",
             "Content-Type": "application/json",
         }
-    
+
     auth_param_pointer = 0
 
     def on_start(self):
