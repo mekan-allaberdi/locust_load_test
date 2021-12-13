@@ -244,5 +244,6 @@ def random_employee_id():
 def random_attendance_id():
     return str(random.choice(ATTENDANCE_ID_LIST))
 
+
 def random_time_off_type_id():
     return random.choice(TIME_OFF_TYPE_LIST)

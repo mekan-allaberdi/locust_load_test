@@ -1,5 +1,5 @@
 import json
-from locust import TaskSet, task, tag, events
+from locust import TaskSet, task, tag
 
 from common.data_gen import random_employee
 from common.api_test_data import random_employee_id

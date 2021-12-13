@@ -9,6 +9,7 @@ from common.api_test_data import random_employee_id, random_time_off_type_id
 
 from datetime import datetime
 
+
 def random_employee():
     employee = {GENDER: random.choice(gender_list)}
     employee = {}
@@ -46,17 +47,18 @@ def random_attendance_list():
     attendance_count = random.randint(1, 5)
     return [random_attendance(NEW) for _ in range(attendance_count)]
 
+
 def random_time_off():
     start_date, end_date = random_start_end_date()
-    return  {
+    return {
         "employee_id": random_employee_id(),
         "time_off_type_id": random_time_off_type_id(),
         "start_date": start_date,
         "end_date": end_date,
         "half_day_start": str(random.randint(0, 1)),
-        "half_day_end": str(random.randint(0, 1))
+        "half_day_end": str(random.randint(0, 1)),
+    }
 
-        }
 
 def form_data(payload):
     return "&".join(["=".join([key, str(value)]) for key, value in payload.items()])
