@@ -16,7 +16,7 @@
 
 ### Prerequisites:
 
-Add credentials of users to auth_params_list in common/secret.py
+Add credentials of users to `auth_params_list` in [common/secret.py](common/secret.py)
 
 ## Running
 
