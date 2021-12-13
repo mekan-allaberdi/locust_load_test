@@ -14,6 +14,10 @@
 
     $ pip install -r requirements.txt
 
+### Prerequisites:
+
+Add credentials of users to auth_params_list in common/secret.py
+
 ## Running
 
     $ locust
