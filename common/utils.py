@@ -21,7 +21,7 @@ def random_time(start_hour=9, end_hour=18):
     )
 
 
-def random_date(start_date, end_date):
+def random_date(start_date=datetime(2021, 12, 20), end_date=datetime.today()):
     """
     Parameters
     ----------

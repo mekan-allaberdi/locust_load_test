@@ -57,7 +57,7 @@ class CandidateTask(TaskSet):
     @tag("candidates", "list", "filtered")
     @list_candidates("filtered")
     def list_filltered(self):
-        return {"updated_after": random_date().strstrftime()}
+        return {"updated_after": random_date().strftime()}
 
     @task(1)
     @tag("candidates", "create")
