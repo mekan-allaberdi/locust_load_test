@@ -1,30 +1,25 @@
 import random
 
 from common.utils import random_date_str, random_time, random_start_end_date
-from common.constants import GENDER, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE
-from common.constants import gender_list, first_name_list, last_name_list, optional_data
-from common.constants import NEW, UPDATE
 
-from common.api_test_data import random_employee_id, random_time_off_type_id
+from common.constants import (
+    NEW,
+    UPDATE,
+    GENDER,
+    HIRE_DATE,
+    personio_optional_data,
+    personio_person_data_format,
+)
 
-from datetime import datetime
+from common.instance_generator import random_person, with_opt_data
+
+from api.personio.data import random_employee_id, random_time_off_type_id
 
 
 def random_employee():
-    employee = {GENDER: random.choice(gender_list)}
-    employee = {}
-    employee[FIRST_NAME] = random.choice(first_name_list["male"])
-    employee[LAST_NAME] = random.choice(last_name_list)
-    employee[EMAIL] = (
-        ".".join([employee[FIRST_NAME], employee[LAST_NAME]]) + "@vacuumlabs.com"
-    )
-
-    for option_key in optional_data:
-        employee[option_key] = random.choice(optional_data[option_key])
-
+    employee = random_person(personio_person_data_format)
     employee[HIRE_DATE] = random_date_str()
-
-    return employee
+    return with_opt_data(employee, personio_optional_data)
 
 
 def random_attendance(ACTION=UPDATE):
@@ -51,7 +46,7 @@ def random_attendance_list():
 def random_time_off():
     start_date, end_date = random_start_end_date()
     return {
-        "employee_id": random_employee_id(),
+        "employee_id": random_employee_id("personio"),
         "time_off_type_id": random_time_off_type_id(),
         "start_date": start_date,
         "end_date": end_date,

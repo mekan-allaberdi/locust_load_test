@@ -75,7 +75,7 @@ def random_start_end_date():
     end_date: string
         The start_date date always comes before the end_date.
     """
-    date = random_date(datetime(2018, 1, 1), datetime(2021, 12, 12))
+    date = random_date(datetime(2015, 1, 1), datetime(2018, 1, 1))
     return date_to_str(date), date_to_str(date + timedelta(days=random.randint(1, 7)))
 
 
@@ -93,3 +93,16 @@ def get_next_token(func):
             user.authenticate()
 
     return wrapper
+
+
+def with_opt_data(optional_data):
+    def wrap(f):
+        def wrapped_f(*args):
+            data = f(*args)
+            for option_key in optional_data:
+                data[option_key] = random.choice(optional_data[option_key])
+            return data
+
+        return wrapped_f
+
+    return wrap

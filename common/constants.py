@@ -1,3 +1,10 @@
+FIRST_NAME_GLOBAL = "first_name"
+LAST_NAME_GLOBAL = "last_name"
+
+PERSONIO = "personio"
+WORKABLE = "workable"
+
+
 FIRST_NAME = "first_name"
 LAST_NAME = "last_name"
 GENDER = "gender"
@@ -8,8 +15,28 @@ OFFICE = "office"
 WEEKLY_HOURS = "weekly_hours"
 HIRE_DATE = "hire_date"
 
+
+FIRSTNAME = "firstname"
+LASTNAME = "lastname"
+HEADLINE = "headline"
+SUMMARY = "summary"
+ADDRESS = "address"
+PHONE = "phone"
+COVER_LETTER = "cover_letter"
+EDUCATION_ENTRIES = "education_entries"
+EXPERIENCE_ENTRIES = "experience_entries"
+ANSWERS = "answers"
+SKILLS = "skills"
+TAGS = "tags"
+DISQUALIFIED = "disqualified"
+DISQUALIFIED_REASON = "disqualified_reason"
+DISQUALIFIED_AT = "disqualified_at"
+SOCIAL_PROFILES = "social_profiles"
+SOURCED = "sourced"
+
 MALE = "male"
 FEMALE = "female"
+TRANSGENDER = "transgender"
 
 ALL_PARAMS = [
     FIRST_NAME,
@@ -2345,6 +2372,7 @@ position_list = [
     "IT Security Consultant",
     "Chief Customer Officer",
     "Accountant",
+    "Professional Administration Manager",
 ]
 
 department_list = ["IT", "Sales", "Customer Service", "Management", "Marketing"]
@@ -2359,11 +2387,162 @@ office_list = [
 
 weekly_hours_list = [20, 25, 30, 35, 40, 50]
 
-optional_data = {
+summary_list = [
+    "A focussed, results-driven team player with many year experience in the field. Working my way up to management level, I have experience of every aspect of this role. I understand the challenges it brings, and have a proven track record of providing solutions.",
+    "A highly motivated, proactive and detail-oriented individual with a strong work ethic. I am a team player and enjoy working in a fast-paced environment. I am a great asset to any team and I am always willing to learn new skills and technologies.",
+]
+
+address_list = [
+    "25772 Gustave Shore, Iowa, USA",
+    "Judith Floyd 361-7936 Feugiat St. Williston Nevada 58521",
+    "P.O. Box 708, 598-8982 Aliquam Rd. Larkspur, California 92931",
+]
+
+phone_list = [
+    "+44 20 8759 9036",
+    "+1-202-555-0107",
+    "+1-202-555-0133",
+    "+1-202-555-0192",
+    "+1-202-555-0193",
+    "+1-202-555-0166",
+    "+1-202-555-0177",
+]
+
+cover_letter_list = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "In my previous capacity as a Staff Accountant at River Tech, I accurately maintained multiple ledgers within Quickbooks while self-managing multiple projects and learning new concepts regularly under deadlines. I was responsible for compiling the company's financial statements for the purposes of providing it to the auditor. I acted as the liaison between the external audit team and the internal accounting department.",
+    "Having worked on many teams and as a people-oriented person, I am very enthusiastic about the possibility to work with a diverse team while managing sole responsibilities as an Accountant. I welcome the opportunity discuss how my qualifications would be an asset to Crane & Jenkins' continued success. My resume is enclosed for your reference.",
+]
+
+education_entries_list = [
+    [
+        {
+            "degree": "MBA",
+            "school": "University of Pennsylvania",
+            "field_of_study": None,
+            "start_date": "2008-03-01",
+            "end_date": "2011-03-30",
+        },
+        {
+            "degree": "B.S.",
+            "school": "University of Chicago",
+            "field_of_study": "Marketing Communication & Economics",
+            "start_date": "2004-09-01",
+            "end_date": "2007-03-30",
+        },
+    ],
+    [
+        {
+            "degree": "BA",
+            "school": "Harward University",
+            "field_of_study": "Marketing",
+            "start_date": "2012-03-01",
+            "end_date": "2016-03-30",
+        }
+    ],
+]
+
+experience_entries_list = [
+    [
+        {
+            "title": "Sales Director",
+            "summary": None,
+            "start_date": "2011-03-01",
+            "end_date": "2014-03-30",
+            "current": False,
+            "company": "Vox Mobile",
+            "industry": "Telecommunications",
+        }
+    ],
+    [
+        {
+            "title": "Junior Developer",
+            "summary": None,
+            "start_date": "2017-11-01",
+            "end_date": "2019-11-30",
+            "current": False,
+            "company": "Facebook",
+            "industry": "Software",
+        },
+        {
+            "title": "Senior Developer",
+            "summary": None,
+            "start_date": "2019-11-01",
+            "end_date": "2020-03-30",
+            "current": False,
+            "company": "Google",
+            "industry": "Software",
+        },
+    ],
+]
+
+skill_list = [
+    ["Travel Planning", "Problem Solving", "Teamwork"],
+    ["Leadership", "Communication"],
+    ["Customer Service", "Accounting", "Project Management", "Marketing"],
+    ["Sales"],
+]
+
+social_profile_list = [
+    [
+        {
+            "type": "twitter",
+            "name": "Twitter",
+            "username": "jj_botha",
+            "url": "http://www.twitter.com/jj_botha",
+        },
+        {
+            "type": "linkedin",
+            "name": "LinkedIn",
+            "url": "http://www.linkedin.com/in/jj_botha",
+        },
+        {"type": "googleplus", "url": "https://plus.google.com/6908286706342698"},
+    ],
+    [
+        {
+            "type": "twitter",
+            "name": "Twitter",
+            "username": "bb_botha",
+            "url": "http://www.twitter.com/bb_botha",
+        },
+        {
+            "type": "linkedin",
+            "name": "LinkedIn",
+            "url": "http://www.linkedin.com/in/bb_botha",
+        },
+    ],
+]
+
+personio_required_data_format = {
+    FIRST_NAME_GLOBAL: FIRST_NAME,
+    LAST_NAME_GLOBAL: LAST_NAME,
+}
+
+
+personio_optional_data = {
     POSITION: position_list,
     DEPARTMENT: department_list,
     OFFICE: office_list,
     WEEKLY_HOURS: weekly_hours_list,
+}
+
+workable_required_data_format = {
+    FIRST_NAME_GLOBAL: FIRSTNAME,
+    LAST_NAME_GLOBAL: LASTNAME,
+}
+
+workable_optional_data = {
+    HEADLINE: position_list,
+    SUMMARY: summary_list,
+    ADDRESS: address_list,
+    PHONE: phone_list,
+    COVER_LETTER: cover_letter_list,
+    EDUCATION_ENTRIES: education_entries_list,
+    EXPERIENCE_ENTRIES: experience_entries_list,
+    SKILLS: skill_list,
+    SOCIAL_PROFILES: social_profile_list,
+    DISQUALIFIED: [True, False],
+    SOURCED: [True, False],
 }
 
 NEW = "new"

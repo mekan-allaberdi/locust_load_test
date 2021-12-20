@@ -1,9 +1,9 @@
 import json
 from locust import TaskSet, task, tag
 
-from common.data_gen import random_attendance, random_attendance_list
-from common.api_test_data import random_attendance_id
+from api.personio.instance_generator import random_attendance, random_attendance_list
 from common.utils import get_next_token
+from api.personio.data import random_attendance_id
 
 
 class AttendanceTask(TaskSet):

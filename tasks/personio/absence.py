@@ -1,8 +1,6 @@
-import json
 from locust import TaskSet, task, tag
 
-from common.data_gen import random_attendance, random_time_off, random_time_off_type_id
-from common.api_test_data import random_attendance_id
+from api.personio.instance_generator import random_time_off, random_time_off_type_id
 from common.utils import get_next_token, random_start_end_date
 
 
@@ -29,7 +27,7 @@ class AbsenceTask(TaskSet):
             name="/company/time-offs",
         )
 
-    @task(10)
+    @task(1)
     @tag("absences", "create")
     @get_next_token
     def create(self):
@@ -41,21 +39,8 @@ class AbsenceTask(TaskSet):
             name="/company/time-offs",
         )
 
-    @task(5)
-    @tag("absences", "update")
-    @get_next_token
-    def update(self):
-        attendance_id = random_attendance_id()
-        payload = random_attendance()
-        return self.client.patch(
-            "/company/attendances/{}".format(attendance_id),
-            data=json.dumps(payload),
-            headers=self.user.get_auth_headers(),
-            name="/absences",
-        )
-
     @task(1)
-    @tag("absences", "delete")
+    @tag("absences", "delete", "unavailable")
     @get_next_token
     def delete(self):
         time_off_type_id = random_time_off_type_id()
@@ -65,7 +50,7 @@ class AbsenceTask(TaskSet):
             name="/company/time-offs/",
         )
 
-    @task(10)
+    @task(5)
     @tag("absences", "detail", "unavailable")
     @get_next_token
     def detail(self):
