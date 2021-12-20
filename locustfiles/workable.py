@@ -8,7 +8,7 @@ class WorkableUser(HttpUser):
     def __init__(self, parent):
         super(WorkableUser, self).__init__(parent)
         self.tool = WORKABLE
-        self.token = "9389c14ce0761c7691f21b8959e413a1f65578688dad2f1ef1eeca20b057b540"
+        self.token = ""
         self.auth_params = None
         self.headers = {
             "Accept": "application/json",
