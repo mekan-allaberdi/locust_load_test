@@ -14,38 +14,38 @@
 
     $ pip install -r requirements.txt
 
-### Personio
+## Personio
 
-## Prerequisites:
+### Prerequisites:
 
 Add credentials of users to `auth_params_list` in [common/secret.py](common/secret.py)
 
-## Running
+### Running
 
     $  locust -f locustfiles/personio.py
 
-## Running with tags
+### Running with tags
 
     $  locust -f locustfiles/personio.py --tags list
 
-## Running without some tags
+### Running without some tags
 
     $  locust -f locustfiles/personio.py --exclude-tags unavailable
 
-### Workable
+## Workable
 
-## Prerequisites:
+### Prerequisites:
 
-Set Access Token value to `token` attribut of WorkableUser in [locustfiles/workable.py](locustfiles/workable.p)
+Set Access Token value to `token` attribut of WorkableUser in [locustfiles/workable.py](locustfiles/workable.py)
 
-## Running
+### Running
 
     $  locust -f locustfiles/workable.py
 
-## Running with tags
+### Running with tags
 
     $  locust -f locustfiles/workable.py --tags list
 
-## Running without some tags
+### Running without some tags
 
     $  locust -f locustfiles/workable.py --exclude-tags unavailable
