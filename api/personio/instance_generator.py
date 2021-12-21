@@ -5,15 +5,42 @@ from common.utils import random_date_str, random_time, random_start_end_date
 from common.constants import (
     NEW,
     UPDATE,
-    GENDER,
     HIRE_DATE,
-    personio_optional_data,
-    personio_person_data_format,
+    FIRST_NAME_GLOBAL,
+    LAST_NAME_GLOBAL,
+    FIRST_NAME,
+    LAST_NAME,
+    POSITION,
+    DEPARTMENT,
+    OFFICE,
+    WEEKLY_HOURS,
 )
+
+from common.constants import (
+    position_list,
+    department_list,
+    office_list,
+    weekly_hours_list,
+)
+
 
 from common.instance_generator import random_person, with_opt_data
 
 from api.personio.data import random_employee_id, random_time_off_type_id
+
+
+personio_person_data_format = {
+    FIRST_NAME_GLOBAL: FIRST_NAME,
+    LAST_NAME_GLOBAL: LAST_NAME,
+}
+
+
+personio_optional_data = {
+    POSITION: position_list,
+    DEPARTMENT: department_list,
+    OFFICE: office_list,
+    WEEKLY_HOURS: weekly_hours_list,
+}
 
 
 def random_employee():
@@ -46,7 +73,7 @@ def random_attendance_list():
 def random_time_off():
     start_date, end_date = random_start_end_date()
     return {
-        "employee_id": random_employee_id("personio"),
+        "employee_id": random_employee_id(),
         "time_off_type_id": random_time_off_type_id(),
         "start_date": start_date,
         "end_date": end_date,

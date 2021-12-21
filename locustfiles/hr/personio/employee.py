@@ -29,7 +29,7 @@ class EmployeeTask(TaskSet):
     @get_next_token
     def create(self):
         payload = {
-            "employee": random_employee(tool=self.user.tool),
+            "employee": random_employee(),
         }
         return self.client.post(
             "/company/employees/",
@@ -42,8 +42,8 @@ class EmployeeTask(TaskSet):
     @tag("employees", "update")
     @get_next_token
     def update(self):
-        employee_id = random_employee_id(tool=self.user.tool)
-        payload = {"employee": random_employee(self.user.tool)}
+        employee_id = random_employee_id()
+        payload = {"employee": random_employee()}
         return self.client.patch(
             "/company/employees/{}".format(employee_id),
             data=json.dumps(payload),
@@ -55,7 +55,7 @@ class EmployeeTask(TaskSet):
     @tag("employees", "detail")
     @get_next_token
     def detail(self):
-        employee_id = random_employee_id(tool=self.user.tool)
+        employee_id = random_employee_id()
         return self.client.get(
             "/company/employees/{}".format(employee_id),
             headers=self.user.get_auth_headers(),
@@ -66,7 +66,7 @@ class EmployeeTask(TaskSet):
     @tag("employees", "absences_balance")
     @get_next_token
     def absences_balance(self):
-        employee_id = random_employee_id(tool=self.user.tool)
+        employee_id = random_employee_id()
         return self.client.get(
             "/company/employees/{}/absences/balance".format(employee_id),
             headers=self.user.get_auth_headers(),

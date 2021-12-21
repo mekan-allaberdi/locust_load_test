@@ -17,45 +17,25 @@ from api.workable.data import (
     random_stage,
 )
 from common.utils import random_date
-
-
-def list_candidates(tag_name):
-    def wrap(func):
-        def wrapped_func(*args, **kwargs):
-            user = args[0].user
-            query_params = func(*args, **kwargs)
-            query_params["limit"] = "100"
-            user.client.get(
-                "/candidates",
-                headers=user.get_auth_headers(),
-                params=query_params,
-                name="/candidates:{}".format(tag_name),
-            )
-
-        return wrapped_func
-
-    return wrap
+from locustfiles.ats.common_tasks import list_candidates
 
 
 class CandidateTask(TaskSet):
-    url = "https://vacuumlabs.workable.com/spi/v3/candidates?limit=100&since_id=97954ac"
-    total = 0
-
     @task(1)
     @tag("candidates", "list")
-    @list_candidates("default")
+    @list_candidates(tag_name="default", limit="100")
     def list(self):
         return {}
 
     @task(1)
     @tag("candidates", "list", "with_job_shortcode")
-    @list_candidates("with_job_shortcode")
+    @list_candidates(tag_name="with_job_shortcode", limit="100")
     def list_by_shortcode(self):
         return {"shortcode": random_job_shortcode()}
 
     @task(1)
     @tag("candidates", "list", "filtered")
-    @list_candidates("filtered")
+    @list_candidates(tag_name="filtered", limit="100")
     def list_filltered(self):
         return {"updated_after": random_date().strftime()}
 

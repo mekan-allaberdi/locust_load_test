@@ -677,7 +677,7 @@ ATTENDANCE_ID_LIST = [
 TIME_OFF_TYPE_LIST = [448195, 448194, 448193, 448188, 448189, 448190, 448191, 448192]
 
 
-def random_employee_id(tool):
+def random_employee_id():
     return str(random.choice(EMPLOYEE_ID_LIST))
 
 

@@ -1,8 +1,6 @@
-from common.secret import auth_params_list
-from tasks.personio.employee import EmployeeTask
-from tasks.personio.absence import AbsenceTask
-
-from common.constants import PERSONIO, WORKABLE
+from common.secret import personio_auth_params_list as auth_param_list
+from employee import EmployeeTask
+from absence import AbsenceTask
 
 from locust import HttpUser, between
 
@@ -10,7 +8,6 @@ from locust import HttpUser, between
 class PersonioUser(HttpUser):
     def __init__(self, parent):
         super(PersonioUser, self).__init__(parent)
-        self.tool = PERSONIO
         self.token = None
         self.auth_params = None
         self.headers = {
@@ -21,9 +18,9 @@ class PersonioUser(HttpUser):
     auth_param_pointer = 0
 
     def on_start(self):
-        self.auth_params = auth_params_list[PersonioUser.auth_param_pointer]
+        self.auth_params = auth_param_list[PersonioUser.auth_param_pointer]
         PersonioUser.auth_param_pointer = (PersonioUser.auth_param_pointer + 1) % len(
-            auth_params_list
+            auth_param_list
         )
         self.authenticate()
 

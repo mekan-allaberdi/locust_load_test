@@ -87,6 +87,7 @@ def get_next_token(func):
     def wrapper(*args, **kwargs):
         user = args[0].user
         response = func(*args, **kwargs)
+        print(response.text)
         if "authorization" in response.headers:
             user.token = response.headers["authorization"].replace("Bearer ", "")
         else:
