@@ -36,7 +36,7 @@ Add credentials of users to `auth_params_list` in [common/secret.py](common/secr
 
 ### Prerequisites:
 
-Set Access Token value to `token` attribut of WorkableUser in [locustfiles/workable.py](locustfiles/workable.p)
+Set Access Token value to `token` attribut of WorkableUser in [locustfiles/workable.py](locustfiles/workable.py)
 
 ### Running
 
