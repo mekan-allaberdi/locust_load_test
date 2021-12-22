@@ -10,6 +10,7 @@ from common.constants import (
     FIRST_NAME_GLOBAL,
     LAST_NAME_GLOBAL,
     HEADLINE,
+    ONE_VALUE_FIELDS,
     SKILLS,
     SOCIAL_PROFILES,
     SUMMARY,
@@ -44,16 +45,18 @@ workable_person_data_format = {
 }
 
 workable_optional_data = {
-    HEADLINE: position_list,
-    SUMMARY: summary_list,
-    ADDRESS: address_list,
-    PHONE: phone_list,
-    COVER_LETTER: cover_letter_list,
-    EDUCATION_ENTRIES: education_entries_list,
-    EXPERIENCE_ENTRIES: experience_entries_list,
-    SKILLS: skill_list,
-    SOCIAL_PROFILES: social_profile_list,
-    DISQUALIFIED: [True, False],
+    ONE_VALUE_FIELDS: {
+        HEADLINE: position_list,
+        SUMMARY: summary_list,
+        ADDRESS: address_list,
+        PHONE: phone_list,
+        COVER_LETTER: cover_letter_list,
+        EDUCATION_ENTRIES: education_entries_list,
+        EXPERIENCE_ENTRIES: experience_entries_list,
+        SKILLS: skill_list,
+        SOCIAL_PROFILES: social_profile_list,
+        DISQUALIFIED: [True, False],
+    }
 }
 
 

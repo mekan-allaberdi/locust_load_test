@@ -1,5 +1,8 @@
 from datetime import datetime, timedelta
 import random
+import time
+
+from common.constants import FUNCTION_FIELDS, MULTI_VALUE_FIELDS
 
 
 def random_time(start_hour=9, end_hour=18):
@@ -100,10 +103,27 @@ def with_opt_data(optional_data):
     def wrap(f):
         def wrapped_f(*args):
             data = f(*args)
-            for option_key in optional_data:
-                data[option_key] = random.choice(optional_data[option_key])
+            for option_type, options in optional_data.items():
+                for option_key, dvalue in options.items():
+                    if option_type is FUNCTION_FIELDS:
+                        data[option_key] = dvalue()
+                    elif option_type is MULTI_VALUE_FIELDS:
+                        data[option_key] = random.sample(
+                            dvalue, random.randint(1, len(dvalue))
+                        )
+                    else:
+                        data[option_key] = random.choice(dvalue)
             return data
 
         return wrapped_f
 
     return wrap
+
+
+def random_emais():
+    num_emails = random.randint(1, 3)
+    return ["@".join([str(time.time()), "vacuumlabs.com"]) for _ in range(num_emails)]
+
+
+def random_offer_list():
+    return [random.randint(20, 80) * 1000 for _ in range(random.randint(1, 5))]

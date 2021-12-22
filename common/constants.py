@@ -1,5 +1,6 @@
 FIRST_NAME_GLOBAL = "first_name"
 LAST_NAME_GLOBAL = "last_name"
+NAME = "name"
 
 PERSONIO = "personio"
 WORKABLE = "workable"
@@ -9,6 +10,7 @@ FIRST_NAME = "first_name"
 LAST_NAME = "last_name"
 GENDER = "gender"
 EMAIL = "email"
+EMAILS = "emails"
 POSITION = "position"
 DEPARTMENT = "department"
 OFFICE = "office"
@@ -22,6 +24,7 @@ HEADLINE = "headline"
 SUMMARY = "summary"
 ADDRESS = "address"
 PHONE = "phone"
+PHONES = "phones"
 COVER_LETTER = "cover_letter"
 EDUCATION_ENTRIES = "education_entries"
 EXPERIENCE_ENTRIES = "experience_entries"
@@ -32,7 +35,13 @@ DISQUALIFIED = "disqualified"
 DISQUALIFIED_REASON = "disqualified_reason"
 DISQUALIFIED_AT = "disqualified_at"
 SOCIAL_PROFILES = "social_profiles"
+SOCIAL_LINKS = "social_links"
+LINKS = "links"
 SOURCED = "sourced"
+
+FUNCTION_FIELDS = "function_fields"
+MULTI_VALUE_FIELDS = "multi_value_fields"
+ONE_VALUE_FIELDS = "one_value_fields"
 
 MALE = "male"
 FEMALE = "female"
@@ -2513,37 +2522,22 @@ social_profile_list = [
     ],
 ]
 
-personio_required_data_format = {
-    FIRST_NAME_GLOBAL: FIRST_NAME,
-    LAST_NAME_GLOBAL: LAST_NAME,
-}
+social_links = [
+    "http://www.twitter.com/jj_botha",
+    "http://www.linkedin.com/in/jj_botha",
+    "https://plus.google.com/6908286706342698",
+    "http://www.twitter.com/bb_botha",
+    "http://www.linkedin.com/in/bb_botha",
+]
 
+remote_cv_url_list = [
+    "https://www.example.com/99883",
+    "https://www.resume.com/13123",
+    "https://www.cv.storage.com/my",
+    "https://www.mydomcuments.com/234",
+    "https://www.store.documects.com/11",
+]
 
-personio_optional_data = {
-    POSITION: position_list,
-    DEPARTMENT: department_list,
-    OFFICE: office_list,
-    WEEKLY_HOURS: weekly_hours_list,
-}
-
-workable_required_data_format = {
-    FIRST_NAME_GLOBAL: FIRSTNAME,
-    LAST_NAME_GLOBAL: LASTNAME,
-}
-
-workable_optional_data = {
-    HEADLINE: position_list,
-    SUMMARY: summary_list,
-    ADDRESS: address_list,
-    PHONE: phone_list,
-    COVER_LETTER: cover_letter_list,
-    EDUCATION_ENTRIES: education_entries_list,
-    EXPERIENCE_ENTRIES: experience_entries_list,
-    SKILLS: skill_list,
-    SOCIAL_PROFILES: social_profile_list,
-    DISQUALIFIED: [True, False],
-    SOURCED: [True, False],
-}
 
 NEW = "new"
 UPDATE = "update"

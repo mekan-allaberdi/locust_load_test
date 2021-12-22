@@ -1,6 +1,5 @@
 import json
 import random
-from datetime import datetime
 
 from locust import TaskSet, task, tag
 
