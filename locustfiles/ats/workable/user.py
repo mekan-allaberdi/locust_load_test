@@ -1,7 +1,7 @@
 from common.constants import WORKABLE
 
 from locust import HttpUser, between
-from tasks.ats.workable.candidates import CandidateTask
+from locustfiles.ats.workable.candidates import CandidateTask
 
 
 class WorkableUser(HttpUser):
