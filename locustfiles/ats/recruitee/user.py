@@ -15,7 +15,7 @@ class RecruiteeUser(HttpUser):
 
     tasks = [CandidateTask]
     wait_time = between(0.5, 1)
-    host = "https://api.recruitee.com/c/{}/".format("72073")
+    host = "https://api.recruitee.com/c/{}".format("72073")
 
     def get_auth_headers(self):
         return {**self.headers, "Authorization": "Bearer {}".format(self.token)}
