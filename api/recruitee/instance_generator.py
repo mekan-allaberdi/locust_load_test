@@ -25,7 +25,7 @@ recruitee_person_data_format = {
     LAST_NAME_GLOBAL: LASTNAME,
 }
 
-personio_optional_data = {
+recruitee_optional_data = {
     MULTI_VALUE_FIELDS: {
         PHONES: phone_list,
         SOCIAL_LINKS: social_links,
@@ -36,7 +36,7 @@ personio_optional_data = {
 }
 
 
-@with_opt_data(personio_optional_data)
+@with_opt_data(recruitee_optional_data)
 def random_candidate():
     person = random_person(recruitee_person_data_format)
     return {NAME: " ".join([person[FIRSTNAME], person[LASTNAME]])}
