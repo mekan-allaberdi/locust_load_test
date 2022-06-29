@@ -60,7 +60,6 @@ class CandidateTask(TaskSet):
             candidate_info = self.detail().json()
 
             placement = random.choice(candidate_info["candidate"]["placements"])
-            print("PLACEMENT:", placement["id"], placement["offer_id"])
 
             # Step-2: Get new stage from offer detail
             offer_info = self.offer_detail(placement["offer_id"]).json()
@@ -70,8 +69,6 @@ class CandidateTask(TaskSet):
             params = {
                 "stage_id": stage["id"],
             }
-
-            print("STAGE:", stage["id"], placement["id"])
 
             self.client.patch(
                 "/placements/{}/change_stage".format(placement["id"]),
@@ -83,10 +80,9 @@ class CandidateTask(TaskSet):
             print("Oops!", e.__class__, "occurred.")
             print("Next entry.")
             print()
-        print("END________________________")
 
     @task(1)
-    @tag("candidates", "placements", "create")
+    @tag("candidates", "placements", "only")
     def create(self):
         params = {
             "candidate_id": random_candidate_id(),
@@ -99,4 +95,3 @@ class CandidateTask(TaskSet):
             headers=self.user.get_auth_headers(),
             name="/placements",
         )
-        print(params["candidate_id"])

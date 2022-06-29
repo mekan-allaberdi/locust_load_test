@@ -16,7 +16,7 @@ class WorkableUser(HttpUser):
 
     tasks = [CandidateTask]
     wait_time = between(0.3, 0.5)
-    host = "https://vacuumlabs.workable.com/spi/v3/"
+    host = "https://your_company.workable.com/spi/v3/"
 
     def get_auth_headers(self):
         return {**self.headers, "Authorization": "Bearer {}".format(self.token)}
